@@ -1,0 +1,15 @@
+kind: pod 
+apiVersion: v1
+metadata:
+  name: multi-container
+spec:
+  containers:
+  - name: nginx 
+    image: nginx
+    ports:
+  - containerPort: 80
+  - name: alpine 
+    image: alpine:latest
+    command: ["sleep","2000"]
+    ports:
+  - containerPort: 80 
