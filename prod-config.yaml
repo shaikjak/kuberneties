@@ -17,7 +17,5 @@ spec:
           configMapRef: 
             name: app-configmap
             key: APP_ENV
-
-          name: app-configmap
       ports:
         - containerPort: 80
