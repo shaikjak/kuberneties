@@ -9,5 +9,6 @@ spec:
       envFrom:
       - configMapRef:
           name: app-configmap
+          key: APP_NAME
       ports:
         - containerPort: 80
