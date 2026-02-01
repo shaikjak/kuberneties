@@ -5,6 +5,10 @@ metadata:
   labels:
     env: production
     tag: prod_db
+  annotations:
+     monitoring.enabled: "true"
+     release.version: v1.0
+     eployed.by: "automation-script"  
 spec:
   containers:
   - name: app-data
