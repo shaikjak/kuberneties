@@ -8,12 +8,12 @@ spec:
       image: nginx
       env:
       - name: APP_NAME
-        valuesFrom:
+        valueFrom:
           configMapRef: 
             name: app-configmap
             key: APP_NAME
       - name: APP_ENV
-        valuesFrom:
+        valueFrom:
           configMapRef: 
             name: app-configmap
             key: APP_ENV
