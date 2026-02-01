@@ -9,12 +9,12 @@ spec:
       env:
       - name: APP_NAME
         valueFrom:
-          configMapRef: 
+          configMapKeyRef: 
             name: app-configmap
             key: APP_NAME
       - name: APP_ENV
         valueFrom:
-          configMapRef: 
+          configMapKeyRef: 
             name: app-configmap
             key: APP_ENV
       ports:
