@@ -7,7 +7,7 @@ spec:
     - name: nginx 
       image: nginx
       envFrom:
-      - ConfigMapRef:
+      - configMapRef:
           name: app-configmap
       ports:
         - containerPort: 80
