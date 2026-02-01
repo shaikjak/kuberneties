@@ -6,9 +6,18 @@ spec:
   containers:
     - name: nginx 
       image: nginx
-      envFrom:
-      - configMapRef:
+      env:
+      - name: APP_NAME
+        valuesFrom:
+          configMapRef: 
+            name: app-configmap
+            key: APP_NAME
+      - name: APP_ENV
+        valuesFrom:
+          configMapRef: 
+            name: app-configmap
+            key: APP_ENV
+
           name: app-configmap
-          key: APP_NAME
       ports:
         - containerPort: 80
