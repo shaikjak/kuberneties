@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resources
+spec:
+  containers:
+  - name: app-data
+    image: nginx
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "128Gi"
+      limits:
+        cpu: "100m"
+        memory: "128Gi"  
+    env:
+    - name: APP_NAME
+      value: "payment serivce"
+    - name: APP_ENV
+      value: "produciton"  
+    ports:    
+      - containerPort: 80    
