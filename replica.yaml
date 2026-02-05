@@ -1,24 +1,25 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: nginx-rs 
+  name: nginx-rs
   namespace: expense-dev
 spec:
   replicas: 3
-  matchLabels:
-    labels: 
+  selector:
+    matchLabels:
       name: nginx
       env: dev
-template:
-  metadata:
-    labels:
-      name: nginx
-      env: dev
-  spec:
-    containers:
-      name: nginx
-      image: nginx:1.25
-      ports:
-        - containerPort: 80
+  template:
+    metadata:
+      labels:
+        name: nginx
+        env: dev
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25
+          ports:
+            - containerPort: 80
+
 
 
