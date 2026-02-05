@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-nodeport
+  name: nginx-lb
+  namespace: expense-dev
 spec:
   type: LoadBalancer
   selector:
     app: nginx
   ports:
-    - port: 80        # Service port
+    - protocol: TCP
+      port: 80        # Service port
       targetPort: 80 # Pod port
-      nodePort: 30080
