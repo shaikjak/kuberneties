@@ -2,10 +2,13 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: static-pod
+  namespace: expense-dev
   labels:
     purpose: ebs-static
     project: expense
 spec:
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1a   # must match EBS AZ
   containers:
   - name: nginx
     image: nginx
@@ -17,4 +20,4 @@ spec:
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
-      claimName: pod-pvc   # PVC name, not PV name
+      claimName: pod-pvc
