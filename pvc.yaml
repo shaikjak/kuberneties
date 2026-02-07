@@ -4,7 +4,7 @@ metadata:
   name: pod-pvc 
   namespace: expense-dev
 spec:
-  volumeName: volume-Pod
+  volumeName: volume-pod
   accessModes:
    - ReadWriteOnce
   resources:
