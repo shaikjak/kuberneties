@@ -6,8 +6,9 @@ spec:
   type: LoadBalancer
   selector:
     purpose: ebs-static
+    purpose: ebs-dynamic
     project: expense
   ports:
   - protocol: TCP
-    port: 80 #service-port
+    port: 80 #service-port;
     targetPort: 80
