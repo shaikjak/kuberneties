@@ -5,19 +5,19 @@ metadata:
   namespace: expense-dev
 spec:
   affinity:
-    nodeaffinity:
+    nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-        - matchExpressions: 
-        - key: "dedicated:
-          operator: "Equal"
-          values: 
-          - db
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: dedicated
+            operator: In
+            values:
+            - db
   tolerations:
-  - key: "dedicated:
-    operator: "Equal" 
+  - key: "dedicated"
+    operator: "Equal"
     value: "db"
-    effect: "NoSchedule"       
+    effect: "NoSchedule"
   containers:
   - name: nginx
     image: nginx:1.25
