@@ -7,13 +7,13 @@ spec:
   affinity:
     podAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-       - labelSelector:
+      - labelSelector:
           matchExpressions:
           - key: app
             operator: In
             values:
             - cache
-      topologyKey: kubernetes.io/hostname
+        topologyKey: kubernetes.io/hostname
   containers:
   - name: nginx
     image: nginx:1.25
