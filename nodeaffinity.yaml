@@ -9,7 +9,7 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: dedicated
+          - key: role
             operator: In
             values:
             - db
