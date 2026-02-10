@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeaffinity-hard
+  namespace: expense-dev
+spec:
+  affinity:
+    nodeaffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions: 
+        - key: "dedicated:
+          operator: "Equal"
+          values: 
+          - db
+  # tolerations:
+  # - key: "dedicated:
+  #   operator: "Equal" 
+  #   value: "db"
+  #   effect: "NoSchedule"       
+  containers:
+  - name: nginx
+    image: nginx:1.25
