@@ -5,20 +5,19 @@ metadata:
   namespace: expense-dev
 spec:
   affinity:
-    nodeAffinity:
+    nodeaffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: dedicated
-            operator: In
-            values:
-            - db
-  # Uncomment this if the node is tainted with: dedicated=db:NoSchedule
-  # tolerations:
-  # - key: "dedicated"
-  #   operator: "Equal"
-  #   value: "db"
-  #   effect: "NoSchedule"
+      nodeSelectorTerms:
+        - matchExpressions: 
+        - key: "dedicated:
+          operator: "Equal"
+          values: 
+          - db
+  tolerations:
+  - key: "dedicated:
+    operator: "Equal" 
+    value: "db"
+    effect: "NoSchedule"       
   containers:
   - name: nginx
     image: nginx:1.25
