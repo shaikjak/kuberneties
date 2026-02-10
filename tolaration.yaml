@@ -4,9 +4,9 @@ metadata:
   name: tolaration
   namespace: expense-dev
 spec:
-  tolarations:
+  tolerations:
   - key: "dedicated"
-    operator: "equal"
+    operator: "Equal"
     value: "db"
     effect: "NoSchedule"
   containers:
