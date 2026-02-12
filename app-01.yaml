@@ -54,7 +54,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-  - host: dummy.kart1.online
+  - host: aws-online.xyz
     http:
       paths:
       - path: /
