@@ -38,7 +38,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mysql
+  name: nginx
   namespace: expense-dev
 spec:
   initContainers:
