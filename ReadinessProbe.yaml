@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: Liveness-pod
+  name: liveness-pod
 spec:
   containers:
   - name: backend
