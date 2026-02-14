@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: expense-dev
+spec:
+  selector:
+    matchLabels:
+      apps: mysql
+  replicas: 1
+  template:
+    metadata:
+      name: mysql
+      labels:
+        apps: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.0
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: root123
+          ports:
+            - containerPort: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+  namespace: expense-dev
+spec:
+  selector:
+    apps: mysql
+  ports:
+    - port: 3306
+      targetPort: 3306
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql
+  namespace: expense-dev
+spec:
+  initContainers:
+    - name: wait-for-db
+      image: busybox
+      command: ["sh", "-c", "until nc -z db-service 3306; do echo waiting for db; sleep 5; done"]
+  containers:
+    - name: backend
+      image: nginx
+      ports:
+        - containerPort: 8080
